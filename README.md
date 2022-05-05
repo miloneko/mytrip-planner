@@ -46,6 +46,9 @@
 たくさんの国を訪問した経験と、長期海外滞在の経験、前職の知見を活かして<br>
 旅行をが計画できるサービスを作りたいと思いました。<br>
 
+## 画面遷移図
+https://www.figma.com/file/AoYXYZI66xsHiK9qXsrGSo/Untitled?node-id=0%3A1
+
 
 ## スケジュール
 *README〜ER図作成：5/5 〆切
