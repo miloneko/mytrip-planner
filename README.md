@@ -49,6 +49,9 @@
 ## 画面遷移図
 https://www.figma.com/file/AoYXYZI66xsHiK9qXsrGSo/Untitled?node-id=0%3A1
 
+## ER図
+[ER図のリンク](https://drive.google.com/file/d/11OzHNU6yOLYXGensXB1uejd33TL0rIry/view?usp=sharing)
+
 
 ## スケジュール
 *README〜ER図作成：5/5 〆切
