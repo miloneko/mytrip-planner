@@ -55,6 +55,6 @@ https://www.figma.com/file/AoYXYZI66xsHiK9qXsrGSo/Untitled?node-id=0%3A1
 
 ## スケジュール
 *README〜ER図作成：5/5 〆切
-　メイン機能実装：5/6 - 6/10
+　メイン機能実装：5/9 - 6/10
 　β版をRUNTEQ内リリース（MVP）：6/15〆切
 　本番リリース：6月末
