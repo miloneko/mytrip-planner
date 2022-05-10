@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, notice: 'User was successfully created.'
     else
+      flash.now[:danger] = 'faild'
       render :new
     end
   end
