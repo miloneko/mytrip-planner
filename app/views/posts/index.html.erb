@@ -1,0 +1,13 @@
+ <div class="rounded overflow-hidden shadow-lg">
+   <div class="container rounded-t-md px-24 py-24 mx-auto">
+    <div class="flex flex-col text-center mb-30">
+      <div class="flex flex-wrap sm:-m-3 -mx-4 -mb-10 -mt-4">
+        <% if @posts.present? %>
+          <%= render @posts %>
+        <% else %>
+      <p>まだ投稿がありません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
