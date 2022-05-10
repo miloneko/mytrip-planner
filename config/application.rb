@@ -39,6 +39,7 @@ module Wheretogo
       g.assets false
       g.helper false
       g.test_framework false
+      g.jbuilder false
     end
   end
 end
