@@ -1,0 +1,18 @@
+ja:
+  users:
+    new:
+      title: '新規登録'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      login_with_twitter: 'Twitterでログイン'
+      noaccount: 'アカウント新規登録はこちら'
+      forgot: 'パスワードをお忘れの方'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました' 
