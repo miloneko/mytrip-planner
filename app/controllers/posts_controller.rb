@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     post = current_user.posts.build(post_params)
     if post.save
       flash[:notice] = t('.success')
+      redirect_to posts_path
     else
       render :new
     end
