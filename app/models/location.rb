@@ -7,6 +7,6 @@ class Location < ActiveHash::Base
     { id: 5, name: '中東' },
     { id: 6, name: 'アフリカ' },
     { id: 7, name: 'ヨーロッパ' },
-    { id: 8, name: 'オセアニア' },
-    ]
+    { id: 8, name: 'オセアニア' }
+  ]
 end
