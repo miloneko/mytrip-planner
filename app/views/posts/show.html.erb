@@ -1,0 +1,9 @@
+<div class="rounded overflow-hidden shadow-lg">
+  <div class="container rounded-t-md px-24 py-24 mx-auto">
+    <div class="flex flex-col text-left mb-30">
+    <%= image_tag @post.image.url, class: 'card-img-top img-fluid', size: '600x400' %>
+      <p><%= @post.title %></p>
+      <p><%= @post.user.name %></p>
+    </div>
+  </div>
+</div>
