@@ -10,6 +10,7 @@
   <div class='mt-3 mb-3'>
     <%= image_tag @post.image.url %>
   </div>
+  <%= f.label :location %>
   <%= f.collection_select(:location_id, Location.all, :id, :name, {}, {class:"location-select"}) %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %> 

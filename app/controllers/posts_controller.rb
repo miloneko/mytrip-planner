@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: %i[index show]
   def new
     @post = Post.new
   end
 
   def create
-    post = current_user.posts.build(post_params)
-    if post.save
+    @post = current_user.posts.build(post_params)
+    if @post.save
       flash[:notice] = t('.success')
       redirect_to posts_path
     else
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  end 
+  end
 
   def edit
     @post = current_user.posts.find(params[:id])
