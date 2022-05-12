@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @categories = Category.where(id: @post.category_ids )
+    @categories = Category.where(id: @post.category_ids)
     if @post.save
       flash[:notice] = t('.success')
       redirect_to posts_path

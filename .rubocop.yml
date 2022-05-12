@@ -34,7 +34,7 @@ Metrics/LineLength:
 # join_roomの記述が引っかかる為。省略は難しい
 Etrics/MethodLength:
   Enabled: true
-  Max: 18
+  Max: 30
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -51,3 +51,7 @@ Metrics/BlockLength:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleguardclause
 Style/GuardClause:
   Enabled: false
+
+  Metrics/AbcSize:
+    Enabled: true
+    Max: 40
