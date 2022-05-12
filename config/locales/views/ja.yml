@@ -1,4 +1,9 @@
 ja:
+  defaults:
+    message:
+      deleted: '投稿を削除しました'
+      updated: '投稿を更新しました'
+      not_updated: '投稿を更新できませんでした'
   users:
     new:
       title: '新規登録'
