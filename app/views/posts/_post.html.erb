@@ -6,8 +6,10 @@
           <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%= link_to post.title, post_path(post)%></p>
           <p class="leading-relaxed"><%= post.location.name %></p>
           <p class="leading-relaxed"><%= post.user.name %></p>
-          <p><%= link_to '詳細', post_path(post)%></p>
-          <i class="fa-solid fa-trash-can"%></i>
+          <%= link_to '詳細', post_path(post)%>
+          <% if logged_in? && current_user.id == post.user_id %>
+            <%= link_to '削除', post_path(post.id),method: :delete, data: { confirm: '本当に消去しますか?' } %>
+          <% end %>
         </div>
     </div>
   </div>
