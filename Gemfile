@@ -30,6 +30,8 @@ gem 'sorcery'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rails-i18n'
 gem 'carrierwave', '2.0.2'
+gem 'rails_admin', '~> 3.0'
+gem 'rails_admin-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
