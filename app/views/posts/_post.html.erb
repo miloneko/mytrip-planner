@@ -5,6 +5,9 @@
         <div class="p-1 text-left sm:mb-0 mb-6">
           <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%= link_to post.title, post_path(post)%></p>
           <p class="leading-relaxed"><%= post.location.name %></p>
+          <% Category.where(id: post.category_ids ).each do |category| %>
+            <%= category.name %>
+          <% end %>
           <p class="leading-relaxed"><%= post.user.name %></p>
           <%= link_to '詳細', post_path(post)%>
           <% if logged_in? && current_user.id == post.user_id %>

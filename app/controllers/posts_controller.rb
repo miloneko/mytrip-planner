@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @categories = Category.where(id: @post.category_ids )
     if @post.save
       flash[:notice] = t('.success')
       redirect_to posts_path
@@ -45,6 +46,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :user, :location_id)
+    params.require(:post).permit(:image, :title, :user, :location_id, category_ids: [])
   end
 end

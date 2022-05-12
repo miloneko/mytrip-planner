@@ -12,5 +12,16 @@
   </div>
   <%= f.label :location %>
   <%= f.collection_select(:location_id, Location.all, :id, :name, {}, {class:"location-select"}) %>
+  <div class='mt-3 mb-3'>
+    <%= f.label :category %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+    <%= category.label do %>
+        <%= category.check_box %>
+        <%= category.text %>
+        <% end %>
+    <% end %>
+   </div>
+   <div class='mt-3 mb-3'>
   <%= f.submit class: 'btn btn-primary' %>
+   </div>
 <% end %> 
