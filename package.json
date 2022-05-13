@@ -1,8 +1,8 @@
 {
-  "name": "wheretogo",
+  "name": "tripplanner",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullhuman/postcss-purgecss": "4",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
