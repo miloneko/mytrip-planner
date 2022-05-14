@@ -47,12 +47,14 @@ class PostsController < ApplicationController
 
   def search
     @results = @q.result
+    location_id = params[:q][:location_id_eq]
+    @location = Location.find_by(id: location_id)
   end
 
   private
 
   def set_q
-    @q = User.ransack(params[:q])
+    @q = Post.ransack(params[:q])
   end
 
   def post_params
