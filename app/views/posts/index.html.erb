@@ -1,6 +1,6 @@
 <h1>地域検索</h1>
 <%= search_form_for @q, url: search_posts_path do |f| %>
-  <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "カテゴリー検索" %>
+  <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "ロケーション検索" %>
   <%= f.submit '検索' %>
 <% end %>
 

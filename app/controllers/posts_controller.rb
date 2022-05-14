@@ -47,8 +47,6 @@ class PostsController < ApplicationController
 
   def search
     @results = @q.result
-    location_id = params[:q][:location_id_eq]
-    @location = Location.find_by(id: location_id)
   end
 
   private
@@ -59,9 +57,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:image, :title, :user, :location_id, category_ids: [])
-  end
-
-  def search_location_post
-    @p = Post.ransack(params[:q])
   end
 end
