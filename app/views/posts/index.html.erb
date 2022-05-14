@@ -1,6 +1,11 @@
 <h1>地域検索</h1>
 <%= search_form_for @q, url: search_posts_path do |f| %>
   <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "ロケーション検索" %>
+  <%= f.label :categories_id_eq_any, "category検索" %>
+  <% Category.all.each do |category| %>
+     <%= check_box_tag('q[categories_id_eq_any][]', category.id ) %>
+     <%= category.name %>
+  <% end %>
   <%= f.submit '検索' %>
 <% end %>
 
