@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
+  before_action :set_q, only: [:index, :search]
+
   def new
     @post = Post.new
   end
@@ -43,9 +45,21 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
+
+  def set_q
+    @q = User.ransack(params[:q])
+  end
 
   def post_params
     params.require(:post).permit(:image, :title, :user, :location_id, category_ids: [])
+  end
+
+  def search_location_post
+    @p = Post.ransack(params[:q])
   end
 end

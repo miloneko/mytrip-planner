@@ -1,0 +1,47 @@
+<h1>
+  検索結果
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+
+<%  @results.each do |post| %>
+  <div class='main'>
+
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'></h2>
+    <ul class='item-lists'>
+
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <%if post%>
+      <li class='list'>
+        <%= link_to post_path(post.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag post.image , class: "item-img" if post.image.attached? %>
+
+          <%# if drink.trade%>
+
+
+
+          <%# end %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= post.title %>
+          </h3>
+          <div class='item-explain'>
+            <%= post.location%>
+          </div>
+          <div>
+            <% if post.location %>
+            地域 <%= post.location.name%>              
+            <% end %>
+          </div>
+          
+        </div>
+
+<% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
