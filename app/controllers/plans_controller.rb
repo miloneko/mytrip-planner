@@ -34,7 +34,7 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    if @plan.update(plan_params)
+    if @plan.update(plans_parameter)
       redirect_to plans_path, notice: "編集しました"
     else
       render 'edit'
