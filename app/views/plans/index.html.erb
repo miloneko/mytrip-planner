@@ -10,7 +10,7 @@
     <% @plans.each do |plans| %>
       <tr>
         <td><%= plans.title %>
-         <a>詳細<a>
+         <%= link_to '詳細', plan_path(plans)%>
         </td>
       </tr>
     <% end %>
