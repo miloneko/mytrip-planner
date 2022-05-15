@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def create
-    @plan = Plan.new(plans_parameter)
+    @plan = current_user.plans.build(plans_parameter)
     if @plan.save
       flash[:notice] = t('.success')
       redirect_to plans_path
@@ -44,6 +44,6 @@ class PlansController < ApplicationController
   private
 
   def plans_parameter
-    params.require(:plan).permit(:title, :spot, :start_time, :end_time, :budget, :body)
+    params.require(:plan).permit(:title, :start_time)
   end
 end
