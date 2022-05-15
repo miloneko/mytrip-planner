@@ -1,0 +1,18 @@
+<%= form_with(model: @plan, local: true) do |form| %>
+
+  <div class="title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="time">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>

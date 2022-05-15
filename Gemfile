@@ -64,4 +64,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'active_hash'
 gem 'seed-fu'
 gem 'ransack'
-gem 'simple_calendar', '~> 2.0'
+gem 'simple_calendar', '~> 2.4'
