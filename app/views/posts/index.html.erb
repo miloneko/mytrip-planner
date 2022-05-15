@@ -1,5 +1,18 @@
- <div class="rounded overflow-hidden shadow-lg">
-   <div class="container rounded-t-md px-24 py-24 mx-auto">
+<h1>地域検索</h1>
+<%= search_form_for @q, url: search_posts_path do |f| %>
+  <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "ロケーション検索" %>
+  <%= f.label :categories_id_eq_any, "category検索" %>
+  <% Category.all.each do |category| %>
+     <%= check_box_tag('q[categories_id_eq_any][]', category.id ) %>
+     <%= category.name %>
+  <% end %>
+  <%= f.submit '検索' %>
+<% end %>
+
+
+
+<div class="rounded overflow-hidden shadow-lg">
+  <div class="container rounded-t-md px-24 py-24 mx-auto">
     <div class="flex flex-col text-center mb-30">
       <div class="flex flex-wrap sm:-m-3 -mx-4 -mb-10 -mt-4">
         <% if @posts.present? %>

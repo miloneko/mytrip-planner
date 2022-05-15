@@ -1,0 +1,9 @@
+<h1>検索結果</h1>
+<% if @results.present? %>
+<% @results.each do |result| %>
+    <%=render result%>
+ <% end %>
+ <% else %>
+  <p>検索結果がありません</p>
+<% end %>
+  

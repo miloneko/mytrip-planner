@@ -63,3 +63,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'active_hash'
 gem 'seed-fu'
+gem 'ransack'

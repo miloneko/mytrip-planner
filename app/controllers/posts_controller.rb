@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
+  before_action :set_q, only: %i[index search]
+
   def new
     @post = Post.new
   end
@@ -16,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.includes(:user, :categories).order(created_at: :desc)
   end
 
   def show
@@ -43,7 +45,15 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
+  def search
+    @results = @q.result(distinct: true)
+  end
+
   private
+
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
 
   def post_params
     params.require(:post).permit(:image, :title, :user, :location_id, category_ids: [])
