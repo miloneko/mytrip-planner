@@ -26,10 +26,10 @@
 
 
 
-<div class="bg-red-50 max-w-md object-center py-4 bg-px-8 bg-white shadow-lg rounded-lg my-20">
+
   <h1>カレンダー</h1>
 <%= month_calendar(events: @plans) do |date, plans| %>
-  <%= date %>
+  <%= date.day %> 
 
   <% plans.each do |plan| %>
     <div>
