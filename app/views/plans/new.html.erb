@@ -1,26 +1,8 @@
-<%= form_with(model: @plan, local: true) do |form| %>
-
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="bg-white font-serif py-6 sm:py-8 lg:py-12">
+  <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+    <div class="mb-10 md:mb-10">
+      <h2 class="text-2xl font-bold text-center lg:text-3xl mb-4 md:mb-6">旅程作成</h2>
+    </div>
+    <%= render 'form', plan: @plan %>
   </div>
-
-  <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-  <div class="time">
-    <%= form.label :end_time %>
-    <%= form.datetime_select :end_time %>
-  </div>
-  <div class="body">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>
+</div>

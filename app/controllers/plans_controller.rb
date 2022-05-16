@@ -43,6 +43,6 @@ class PlansController < ApplicationController
   private
 
   def plans_parameter
-    params.require(:plan).permit(:title, :start_time)
+    params.require(:plan).permit(:title, :start_time, :end_body, :body)
   end
 end
