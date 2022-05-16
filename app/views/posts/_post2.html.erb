@@ -1,0 +1,20 @@
+<div class="bg-white max-w-sm rounded overflow-hidden font-serif shadow-lg">
+  <div id="post-id-<%= post.id %>">
+    <div class="px-6 py-4">
+      <%= image_tag post.image_url, size: '300x200' %>
+        <div class="p-1 text-left sm:mb-0 mb-6">
+          <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%= link_to post.title, post_path(post)%></p>
+          <p class="leading-relaxed"><%= post.location.name %></p>
+          <% Category.where(id: post.category_ids ).each do |category| %>
+            <%= category.name %>
+          <% end %>
+          <p class="leading-relaxed"><%= post.user.name %></p>
+          <%= link_to '詳細', post_path(post)%>
+          <% if logged_in? && current_user.id == post.user_id %>
+            <%= link_to '編集', edit_post_path(post.id)%>
+            <%= link_to '削除', post_path(post.id),method: :delete, data: { confirm: '本当に消去しますか?' } %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div> 
