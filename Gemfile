@@ -32,7 +32,6 @@ gem 'rails-i18n'
 gem 'carrierwave', '2.0.2'
 gem 'letter_opener_web', '~> 1.0'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
