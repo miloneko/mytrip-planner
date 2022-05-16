@@ -16,12 +16,23 @@ ja:
       title: 'ログイン'
       login_with_twitter: 'Twitterでログイン'
       noaccount: 'アカウント新規登録はこちら'
-      forgot: 'パスワードをお忘れの方'
+      forgot: 'パスワードをお忘れの方はこちら'
     create:
       success: 'ログインしました'
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました' 
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '申請する'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
   posts:
     create: 
       success: '投稿しました'

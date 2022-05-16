@@ -3,7 +3,7 @@
     <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
       <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
         <%= f.text_field :name, :placeholder => "Name*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
-        <%= f.text_field :email, :placeholder => "Email*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
+        <%= f.email_field :email, :placeholder => "Email*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
         <%= f.text_field :password, :placeholder => "Password*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
         <%= f.text_field :password_confirmation, :placeholder => "Confirm Password*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
         <div class="sm:col-span-2 flex justify-center items-center text-center">
