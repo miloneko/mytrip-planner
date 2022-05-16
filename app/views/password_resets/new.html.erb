@@ -1,0 +1,14 @@
+<div class="bg-white font-serif py-6 sm:py-8 lg:py-12">
+  <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+    <div class="mb-10 md:mb-10">
+      <h2 class="text-2xl font-bold text-center lg:text-3xl mb-4 md:mb-6"><%= t('.title') %></h2>
+      <%= form_with url: password_resets_path, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :email, User.human_attribute_name(:email), class:"inline-block text-sm sm:text-base mb-2"%>
+          <%= f.email_field :email, class:"w-full bg-gray-50 border focus:ring ring-red-50 rounded outline-none transition duration-100 px-3 py-2"%>
+        </div>
+          <%= f.submit t('password_resets.new.submit'),class: "inline-block bg-green-500 hover:bg-green-600 active:bg-indigo-700 focus-visible:ring ring-green-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3" %>
+      <% end %>
+    </div>
+  </div>
+</div> 
