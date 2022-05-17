@@ -1,0 +1,19 @@
+<h1>登録済みのユーザー一覧</h1>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>登録日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.created_at %></td>
+        <%= link_to '削除', admin_user_path(user.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+  </td>
+      </tr>
+    <% end %>
+  </tbody> 
