@@ -4,6 +4,10 @@
     <%= image_tag @post.image.url, class: 'card-img-top img-fluid', size: '600x400' %>
       <p><%= @post.title %></p>
       <p><%= @post.user.name %></p>
+      <% if logged_in? && current_user.id == @post.user_id %>
+            <%= link_to '編集', edit_post_path(@post.id)%>
+            <%= link_to '削除', post_path(@post.id),method: :delete, data: { confirm: '本当に消去しますか?' } %>
+          <% end %>
     </div>
   </div>
 </div>
