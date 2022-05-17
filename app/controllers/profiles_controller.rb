@@ -10,12 +10,12 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(user_params)
-     redirect_to profile_path, notice: t('.success')
+      redirect_to profile_path, notice: t('.success')
     else
-     flash.now[:danger] = t('.fail')
-     render :edit
+      flash.now[:danger] = t('.fail')
+      render :edit
+    end
   end
- end
 
   private
 
@@ -26,4 +26,4 @@ class ProfilesController < ApplicationController
   def set_user
     @user = User.find(current_user.id)
   end
- end
+end
