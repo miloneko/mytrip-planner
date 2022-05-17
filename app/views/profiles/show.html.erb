@@ -12,3 +12,12 @@
         </div>
       </div>
     </div>
+    <p class="text-base font-bold text-center pt-6 sm:pt-8 lg:pt-12">投稿一覧</p>
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 p-5">
+      <% if @posts.present? %>
+        <%= render partial: 'post', collection: @posts, as: 'post' %>
+      <% else %>
+        <p class="p-6">まだ投稿していません</p>
+      <% end %> 
+    </div>
+   </div>
