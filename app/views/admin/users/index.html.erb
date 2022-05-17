@@ -12,7 +12,7 @@
       <td><%= user.id %></td>
       <td><%= user.name %></td>
       <td><%= user.created_at %></td>
-        <%= link_to '削除', admin_user_path(@users), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
+        <%= link_to '削除', admin_user_path(user.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } %>
   </td>
       </tr>
     <% end %>
