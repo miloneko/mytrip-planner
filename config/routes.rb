@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
   resources :password_resets, only: %i[new create edit update]
+  resource :profile, only: %i[show edit update]
   end
  end
 end

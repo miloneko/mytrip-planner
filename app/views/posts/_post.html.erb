@@ -5,7 +5,7 @@
           <%= image_tag post.image_url, size: '300x200' %>
         </div>
         <span class="pt-1 ml-2 font-bold text-sm"><%= post.user.name %></span>
-      </div>
+      </div>    
       <span class="px-2 hover:bg-gray-300 cursor-pointer rounded"><%= link_to post_path(post) do%><i class="fas fa-ellipsis-h pt-2 text-lg"></i></span><% end %>
     </div>
     <div class="w-full bg-cover">
