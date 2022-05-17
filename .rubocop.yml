@@ -52,6 +52,5 @@ Metrics/BlockLength:
 Style/GuardClause:
   Enabled: false
 
-  Metrics/AbcSize:
-    Enabled: true
-    Max: 40
+Metrics/AbcSize:
+  Max: 100
