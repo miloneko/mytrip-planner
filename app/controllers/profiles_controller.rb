@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def show
-    @pictures = @user.posts
+    @posts = @user.posts
   end
 
   def edit; end
