@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+
+
+
   namespace :admin do
     resources :users, only: %i[index edit destroy]
   end
@@ -17,4 +20,8 @@ Rails.application.routes.draw do
       get 'search'
   end
  end
+
+  post 'oauth/callback', to: 'oauths#callback'
+  get 'oauth/callback', to: 'oauths#callback'
+  get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 end
