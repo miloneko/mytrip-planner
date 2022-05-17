@@ -1,12 +1,12 @@
 <h1>地域検索</h1>
 <%= search_form_for @q, url: search_posts_path do |f| %>
-  <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "ロケーション検索" %>
-  <%= f.label :categories_id_eq_any, "category検索" %>
+  <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "地域を選択してください" %>
+  <%= f.label :categories_id_eq_any, "Hashtag検索" %>
   <% Category.all.each do |category| %>
      <%= check_box_tag('q[categories_id_eq_any][]', category.id ) %>
      <%= category.name %>
   <% end %>
-  <%= f.submit '検索' %>
+  <%= f.submit '検索',class:"inline-block rounded-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3" %>
 <% end %>
 <div class="rounded overflow-hidden shadow-lg">
   <div class="container rounded-t-md px-24 py-24 mx-auto">
