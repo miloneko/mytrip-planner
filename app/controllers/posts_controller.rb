@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.includes(:user, :categories).order(created_at: :desc)
+    @posts = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page])
   end
 
   def show
