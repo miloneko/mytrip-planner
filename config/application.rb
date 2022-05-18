@@ -13,6 +13,8 @@ require 'action_text/engine'
 require 'action_view/railtie'
 require 'action_cable/engine'
 require 'sprockets/railtie'
+require 'dotenv'
+Dotenv.load
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -45,6 +47,12 @@ module Wheretogo
       config.i18n.available_locales = %i(ja)
       config.i18n.default_locale = :ja
       config.time_zone = 'Tokyo'
+
+      Bundler.require(*Rails.groups)
+
+      Dotenv::Railtie.load
+
+      API_KEY = ENV['API_KEY']
     end
   end
 end
