@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.includes(:user, :categories).order(created_at: :desc)
+    @posts = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def show
@@ -47,12 +47,14 @@ class PostsController < ApplicationController
 
   def search
     @results = @q.result(distinct: true)
+    @results = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page]).per(9)
   end
 
   private
 
   def set_q
     @q = Post.ransack(params[:q])
+    @posts = @q.result.includes(:user).page(params[:page])
   end
 
   def post_params

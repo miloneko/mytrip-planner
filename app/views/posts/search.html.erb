@@ -1,9 +1,29 @@
-<h1>検索結果</h1>
-<% if @results.present? %>
-<% @results.each do |result| %>
-    <%=render result%>
- <% end %>
- <% else %>
-  <p>検索結果がありません</p>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+    <div class="flex flex-col items-center gap-4 md:gap-6">
+      <div class="flex flex-col sm:flex-row items-center gap-10">
+        <div class="font-bold">
+          <a class="text-2xl text-gray-800">検索結果</a>
+        </div>
+      </div>
+      <div class="rounded overflow-hidden shadow-lg">
+        <div class="container rounded-t-md px-24 py-24 mx-auto">
+          <div class="flex flex-col text-center mb-30">
+            <div class="flex flex-wrap sm:-m-3 -mx-4 -mb-10 -mt-4">
+              <% if @results.present? %>
+                <% @results.each do |result| %>
+                  <%=render result%>
+              <% end %>
+              <% else %>
+                <p>検索結果がありません</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<section><%= paginate @posts %></section>
+<%= link_to posts_path do %>
+ <%= image_tag 'back2.png', size: '50x30' %>
 <% end %>
-  

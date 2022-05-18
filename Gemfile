@@ -30,6 +30,7 @@ gem 'sorcery'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rails-i18n'
 gem 'carrierwave', '2.0.2'
+gem 'mini_magick'
 gem 'letter_opener_web', '~> 1.0'
 
 group :development, :test do
@@ -66,3 +67,5 @@ gem 'active_hash'
 gem 'seed-fu'
 gem 'ransack'
 gem 'simple_calendar', '~> 2.4'
+gem 'carrierwave-i18n'
+gem 'kaminari'
