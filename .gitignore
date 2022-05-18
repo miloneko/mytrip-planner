@@ -36,3 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 /public/uploads
 .DS_Store
+/config/initializers/geocoder.rb
+/plans/index.html.erb
