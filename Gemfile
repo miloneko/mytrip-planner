@@ -71,4 +71,3 @@ gem 'simple_calendar', '~> 2.4'
 gem 'carrierwave-i18n'
 gem 'kaminari'
 gem 'geocoder'
-
