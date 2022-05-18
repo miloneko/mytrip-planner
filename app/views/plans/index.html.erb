@@ -35,43 +35,27 @@
 </style>
 
 <script>
-let map
+    let map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center:{lat: 35.68123620000001, lng:139.7671248},
+                zoom: 12,
+            });
 
-const display = document.getElementById('display')
+            <% @plans.each do |m| %>
+                <% results = Geocoder.search(m.address) %>
+                <% if results.present? %>
+                    <% @latlng = results.first.coordinates %>
+                    (function() {
+                        let marker = new google.maps.Marker({
+                            position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+                            map: map
+                        });
+                    })();
 
-function initMap(){
-  geocoder = new google.maps.Geocoder()
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.7828, lng:-73.9653},
-    zoom: 12,
-  });
-
-  marker = new google.maps.Marker({
-    position:  {lat: 40.7828, lng:-73.9653},
-    map: map
-  });
-}
-
-let geocoder
-
-function codeAddress(){
-  let inputAddress = document.getElementById('address').value;
-
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-      display.textContent = "検索結果：" + results[ 0 ].geometry.location
-    } else {
-      alert('該当する結果がありませんでした：' + status);
-    }
-  });   
-}
-
+                <% end %>
+            <% end %>
+        }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSs1dHgg9HztBGTDM05lfPzt8aWMgdCw&callback=initMap" async defer></script>
 
