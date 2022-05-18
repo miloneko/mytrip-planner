@@ -5,6 +5,12 @@ ja:
       updated: '投稿を更新しました'
       not_updated: '投稿を更新できませんでした'
       require_login: 'ログインしてください'
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'
+      truncate: '...'
   users:
     new:
       title: '新規登録'

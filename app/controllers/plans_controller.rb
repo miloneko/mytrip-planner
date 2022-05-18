@@ -9,7 +9,7 @@ class PlansController < ApplicationController
   end
 
   def index
-    @plans = Plan.all
+    @plans = Plan.all.includes(:user).order(created_at: :desc).page(params[:page])
     @plan = Plan.new
   end
 

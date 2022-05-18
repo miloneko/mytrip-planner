@@ -53,6 +53,7 @@ class PostsController < ApplicationController
 
   def set_q
     @q = Post.ransack(params[:q])
+    @posts = @q.result.includes(:user).page(params[:page])
   end
 
   def post_params
