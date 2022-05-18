@@ -47,6 +47,7 @@ class PostsController < ApplicationController
 
   def search
     @results = @q.result(distinct: true)
+    @results = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page])
   end
 
   private
