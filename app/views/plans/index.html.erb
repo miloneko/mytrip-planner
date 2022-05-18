@@ -18,6 +18,46 @@
 </table>
 </div>
 
+
+
+
+<div id="display">行きたい場所リストに登録した住所がピンで表示されます</div>
+
+<div id='map'></div>
+
+
+<style>
+#map {
+  height: 600px;
+  width: 600px;
+}
+</style>
+
+<script>
+    let map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center:{lat: 35.68123620000001, lng:139.7671248},
+                zoom: 12,
+            });
+
+            <% @plans.each do |m| %>
+                <% results = Geocoder.search(m.address) %>
+                <% if results.present? %>
+                    <% @latlng = results.first.coordinates %>
+                    (function() {
+                        let marker = new google.maps.Marker({
+                            position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+                            map: map
+                        });
+                    })();
+
+                <% end %>
+            <% end %>
+        }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLEMAPS_API_KEY'] %>&callback=initMap" async defer></script>
+
 <div class="flex flex-wrap object-center place-items-center ">
   <div class="text-center">
     <%= link_to '新規作成',new_plan_path, class: "font-serif pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" %>
