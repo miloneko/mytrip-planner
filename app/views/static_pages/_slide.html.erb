@@ -1,5 +1,4 @@
 <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
-
 <article x-data="slider" class="relative w-full flex flex-shrink-0 overflow-hidden shadow-2xl">
     <div class="rounded-full bg-gray-600 text-white absolute top-5 right-5 text-sm px-2 text-center z-10">
         <span x-text="currentIndex"></span>/
@@ -63,3 +62,12 @@
         }))
     })
 </script>
+
+<div class="max-w-screen-md grid sm:grid-cols-2 mx-auto">
+  <div class="sm:col-span-2 p-3.5 items-center text-center">
+    <%= link_to '利用規約に同意してはじめる' , posts_path ,class:"text-gray-700 border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2" %>
+  </div>
+  <div class="sm:col-span-2 p-3.5 items-center text-center">
+    <%= link_to '新規ユーザー登録' , new_user_path ,class:"text-gray-700 border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2" %>
+  </div>
+</div>
