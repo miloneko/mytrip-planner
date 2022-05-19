@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page]).per(9)
+    @posts = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def show
@@ -58,6 +58,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:image, :title, :user, :location_id, category_ids: [])
+    params.require(:post).permit(:image, :title, :user, :address, :location_id, category_ids: [])
   end
 end

@@ -13,6 +13,10 @@
   <%= f.label :location %>
   <%= f.collection_select(:location_id, Location.all, :id, :name, {}, {class:"location-select"}) %>
   <div class='mt-3 mb-3'>
+  <div class="text">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
     <%= f.label :category %>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
     <%= category.label do %>
