@@ -1,7 +1,7 @@
 ja:
   defaults:
     privacy: 'プライバシーポリシー'
-    teams: '利用規約'
+    terms: '利用規約'
     contact: 'お問い合わせ'
     message:
       deleted: '投稿を削除しました'
