@@ -1,6 +1,10 @@
-<h1>地域検索</h1>
+<div class="flex justify-center font-serif tems-center w-full bg-white">
+  <div class="w-11/12 bg-white rounded shadow-2xl p-8 m-4">
+    <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">地域、ハッシュタグで絞り込み検索</h1>
 <%= search_form_for @q, url: search_posts_path do |f| %>
+ <div class="w-2/5 bg-gray-50 border focus:ring ring-red-50 rounded outline-none transition duration-100 px-3 py-2">
   <%= f.collection_select :location_id_eq, Location.where.not(id: 0), :id, :name, include_blank: "地域を選択してください" %>
+ </div>
   <%= f.label :categories_id_eq_any, "Hashtag検索" %>
   <% Category.all.each do |category| %>
      <%= check_box_tag('q[categories_id_eq_any][]', category.id ) %>
