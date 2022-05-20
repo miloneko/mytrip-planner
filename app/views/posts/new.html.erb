@@ -1,5 +1,5 @@
 <div class="flex justify-center font-serif tems-center w-full bg-white">
-  <div class="w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+  <div class="w-3/5 bg-white rounded shadow-2xl p-8 m-4">
     <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">投稿作成</h1>
     <% if @post.errors.any? %>
       <%= render 'shared/error_message', object: @post %>
@@ -7,6 +7,3 @@
     <%= render 'form', { post: @post } %>
   </div>
 </div> 
-<%= link_to root_path do %>
- <%= image_tag 'back2.png', size: '50x30' %>
-<% end %>
