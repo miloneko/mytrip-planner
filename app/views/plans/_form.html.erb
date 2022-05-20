@@ -1,30 +1,28 @@
 <%= form_with(model: @plan, local: true) do |form| %>
-
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto">
+  <div class="sm:col-span-2">
+    <%= form.label :'タイトル' , class:"inline-block text-sm sm:text-base mb-2"%>
+    <%= form.text_field :title, :placeholder => "タイトル", class:"w-full bg-gray-50 border focus:ring ring-red-50 rounded outline-none transition duration-100 px-3 py-2" %>
   </div>
-
+<div class="sm:col-span-2">
   <div class="time">
-    <%= form.label :start_time %>
+    <%= form.label :'開始日時' %>
     <%= form.datetime_select :start_time %>
   </div>
   <div class="time">
-    <%= form.label :end_time %>
+    <%= form.label :'終了日時' %>
     <%= form.datetime_select :end_time %>
   </div>
-  <div class="text">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+</div>
+<div class="sm:col-span-2">
+    <%= form.label :'訪問予定地', class:"inline-block text-sm sm:text-base mb-2" %>
+    <%= form.text_field :address, :placeholder => "住所、地名、施設名を入力してください MAPにピンが表示されます", class:"w-full bg-gray-50 border focus:ring ring-red-50 rounded outline-none transition duration-100 px-3 py-2" %>
   </div>
-  <div class="body">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>
+<div class="sm:col-span-2">
+    <%= form.label :'メモ', class:"inline-block text-sm sm:text-base mb-2" %>
+    <%= form.text_field :body, :placeholder => "ここにメモを入力してください", class:"w-full bg-gray-50 border focus:ring ring-red-50 rounded outline-none transition duration-100 px-3 py-2" %>
+</div>
+<div class="submit">
+  <%= form.submit :"登録", class:"inline-block bg-green-500 hover:bg-green-600 active:bg-green-700 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3" %>
+  <% end %>
+</div>

@@ -2,12 +2,17 @@
   <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
     <div class="mb-10 md:mb-10">
       <h2 class="text-2xl font-bold text-center lg:text-3xl mb-4 md:mb-6">旅程表</h2>
-
-<div class="max-w-md font-serif text-center object-center py-4 px-5 bg-white shadow-lg rounded-lg my-20">
-  <p><%= @plan.title %></p>
-  <p><%= @plan.start_time %></p>
-  <p><%= @plan.end_time %></p>
-  <p><%= @plan.body %></p>
-    <%= link_to '編集', edit_plan_path(@plan)%>
-    <%= link_to '削除', plan_path(@plan),method: :delete, data: { confirm: '本当に消去しますか?' }%>
+<div class="max-w-md max-w-screen-2xl font-serif text-center object-center py-4 px-5 bg-white shadow-lg rounded-lg my-20">
+  <h3 class="text-2xl font-bold text-center lg:text-3xl mb-4 md:mb-6">タイトル</h3>
+    <span class="font-medium mr-2"><%= @plan.title %></span> 
+  <h2 class="text-2xl font-bold text-center lg:text-3xl mb-4 md:mb-6">日程</h2>
+    <p><%= @plan.start_time %>~<%= @plan.end_time %></p>
+  <h2 class="text-2xl font-bold text-center lg:text-3xl mb-4 md:mb-6">行きたい場所</h2>
+    <p><%= @plan.address %></p>
+    <p><%= @plan.body %></p>
+  <%= link_to '編集', edit_plan_path(@plan)%>
+  <%= link_to '削除', plan_path(@plan),method: :delete, data: { confirm: '本当に消去しますか?' }%>
+    </div>
+  </div>
+ </div>
 </div>
