@@ -1,11 +1,6 @@
 <div class="max-w-md font-serif max-w-screen-2xl font-serif text-center object-center py-4 px-5 bg-white shadow-lg rounded-lg my-20">
 <h1>プラン一覧</h1>
 <table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-    </tr>
-  </thead>
   <tbody>
     <% @plans.each do |plans| %>
       <tr>
@@ -16,11 +11,11 @@
     <% end %>
   </tbody>
 </table>
-<div class="flex flex-wrap object-center place-items-center ">
-  <div class="text-center">
-    <%= link_to '新規作成',new_plan_path, class:"inline-block rounded-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"  %>
+  <div class="flex flex-wrapobject-center place-items-center ">
+    <div class="text-center">
+      <%= link_to '新規作成',new_plan_path, class:"inline-block rounded-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"  %>
+    </div>
   </div>
-</div>
 </div>
 
 
