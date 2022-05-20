@@ -4,6 +4,14 @@
       <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
         <%= f.text_field :name, :placeholder => "Name*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
         <%= f.email_field :email, :placeholder => "Email*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
+      <div class="sm:col-span-2">
+        <%= f.label :'プロフィール画像', class:"inline-block text-sm sm:text-base mb-2"%>
+        <%= f.file_field :avatar, onchange: 'previewImage()', class:"w-full px-3 py-2", accept: 'image/*'%>
+        <%= f.hidden_field :avatar_cache %>
+     </div>
+      <div class="w-24 md:w-32 h-24 md:h-32 bg-gray-100 rounded-full overflow-hidden shadow-lg ">
+        <%= image_tag @user.avatar.url, class: 'w-full h-full object-cover object-center ', id: 'preview', size: '100x100'%>
+      </div>
         <%= f.password_field :password, :placeholder => "Password*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
         <%= f.password_field :password_confirmation, :placeholder => "Confirm Password*", class:"block border border-grey-light w-full p-3 rounded mb-4" %>
         <div class="sm:col-span-2 flex justify-center items-center text-center">
@@ -18,3 +26,21 @@
     </div>
   </div>
 <% end %> 
+
+<script>
+function previewImage() {
+  const target = this.event.target;
+  console.log(target);
+  const file = target.files[0];
+  const reader  = new FileReader();
+  reader.onloadend = function () {
+      const preview = document.querySelector("#preview")
+      if(preview) {
+          preview.src = reader.result;
+      }
+  }
+  if (file) {
+      reader.readAsDataURL(file);
+  }
+}
+</script>

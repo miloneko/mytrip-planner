@@ -1,15 +1,15 @@
 <div class="rounded overflow-hidden border w-full lg:w-4/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
-    <div class="w-full flex justify-between p-3">
-      <div class="flex">
-        <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden">
-          <%= image_tag post.image_url, size: '300x200' %>
-        </div>
+  <div class="w-full flex justify-between p-3">
+    <div class="flex">
+      <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden">
+        <%= image_tag post.user.avatar_url, size: '300x200' %>
+      </div>
         <span class="pt-1 ml-2 font-bold text-sm"><%= post.user.name %></span>
       </div>    
       <span class="px-2 hover:bg-gray-300 cursor-pointer rounded"><%= link_to post_path(post) do%><i class="fas fa-ellipsis-h pt-2 text-lg"></i></span><% end %>
     </div>
     <div class="w-full bg-cover">
-    <%= image_tag post.image_url(:thumb) %>
+    <%= image_tag postq.image_url(:thumb) %>
     </div>
     <div class="px-3 pb-2">
        <div class="pt-2">

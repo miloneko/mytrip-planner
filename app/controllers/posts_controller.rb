@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
+  def create 
     @post = current_user.posts.build(post_params)
     @categories = Category.where(id: @post.category_ids)
     if @post.save
@@ -58,6 +58,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:image, :title, :user, :address, :location_id, category_ids: [])
+    params.require(:post).permit(:image, :image_cache, :title, :user, :address, :location_id, category_ids: [])
   end
 end
