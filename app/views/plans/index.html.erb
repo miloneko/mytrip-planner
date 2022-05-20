@@ -1,4 +1,4 @@
-<div class="max-w-md font-serif text-center object-center py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+<div class="max-w-md font-serif max-w-screen-2xl font-serif text-center object-center py-4 px-5 bg-white shadow-lg rounded-lg my-20">
 <h1>プラン一覧</h1>
 <table>
   <thead>
@@ -16,12 +16,17 @@
     <% end %>
   </tbody>
 </table>
+<div class="flex flex-wrap object-center place-items-center ">
+  <div class="text-center">
+    <%= link_to '新規作成',new_plan_path, class:"inline-block rounded-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"  %>
+  </div>
+</div>
 </div>
 
 
 
 
-<div id="display">行きたい場所リストに登録した住所がピンで表示されます</div>
+<div id="display">訪問予定地に登録した住所がピンで表示されます</div>
 
 <div id='map'></div>
 
@@ -29,7 +34,7 @@
 <style>
 #map {
   height: 600px;
-  width: 600px;
+  width: 1200px;
 }
 </style>
 
@@ -57,12 +62,6 @@
         }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
-
-<div class="flex flex-wrap object-center place-items-center ">
-  <div class="text-center">
-    <%= link_to '新規作成',new_plan_path, class: "font-serif pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" %>
-  </div>
-</div>
 
   <h1>カレンダー</h1>
 <%= month_calendar(events: @plans) do |date, plans| %>
