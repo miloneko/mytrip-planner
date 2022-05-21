@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show search]
   before_action :set_q, only: %i[index search]
 
   def new
@@ -46,8 +46,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @q.result(distinct: true)
-    @results = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page]).per(9)
+    @results = @q.result(distinct: true).page(params[:page]).per(6)
   end
 
   private
