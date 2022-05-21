@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create 
+  def create
     @post = current_user.posts.build(post_params)
     @categories = Category.where(id: @post.category_ids)
     if @post.save
