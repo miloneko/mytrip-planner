@@ -1,0 +1,15 @@
+current directory: /Users/satoyumika/workspace/runteq/wheretogo/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/satoyumika/.rbenv/versions/2.7.5/bin/ruby -I /Users/satoyumika/.rbenv/versions/2.7.5/lib/ruby/2.7.0 -r ./siteconf20220528-76730-kargn0.rb extconf.rb
+creating Makefile
+
+current directory: /Users/satoyumika/workspace/runteq/wheretogo/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/satoyumika/workspace/runteq/wheretogo/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/satoyumika/workspace/runteq/wheretogo/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20220528-76730-1sx6kca/skiptrace/internal
