@@ -9,6 +9,16 @@
     <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application2", media: "all", 'data-turbolinks-track': "reload" %>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G687ZN0XJS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      unction gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-G687ZN0XJS');
+    </script>
   </head>
 
   <body>
