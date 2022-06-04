@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :plans, dependent: :destroy
   has_many :authentications, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resource :profile, only: %i[show edit update]
   resources :posts do
+    resources :comments, only: %i[create], shallow: true
     collection do
       get 'search'
   end
