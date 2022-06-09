@@ -7,5 +7,6 @@
         <i class="fa-solid fa-pen-to-square"></i><%= link_to '編集', edit_post_path(@post.id)%>
         <i class="fa-solid fa-trash-can"></i><%= link_to '削除', post_path(@post.id),method: :delete, data: { confirm: '本当に消去しますか?' } %>
       <% end %>
+      <%= render 'comments/comments', post: @post, comment: @comment%> 
   </div>
 </div>

@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-1 py-4">
+  <div class="flex items-center gap-2">
+    <div class="w-8 h-8 bg-gray-100 rounded-full overflow-hidden shadow-lg">
+      <%= image_tag comment.user.avatar_url, class: 'object-cover object-center' %>
+    </div>
+    <p class="block text-sm font-bold"><%= comment.user.name %></p>
+  <p><%= comment.body %></p>
+  <% if current_user.own?(comment) %>
+    <i class="fa-solid fa-trash-can"></i><%= link_to '削除', post_path(@post.id),method: :delete, data: { confirm: '本当に消去しますか?' } %>
+  <% end %>
+</div>
