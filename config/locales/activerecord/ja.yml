@@ -10,3 +10,5 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード（確認）'
         avatar: 'アイコン' 
+      comment:
+        body: 'コメント'

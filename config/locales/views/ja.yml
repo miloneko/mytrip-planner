@@ -3,6 +3,7 @@ ja:
     privacy: 'プライバシーポリシー'
     terms: '利用規約'
     contact: 'お問い合わせ'
+    post: '投稿'
     message:
       deleted: '投稿を削除しました'
       updated: '投稿を更新しました'
@@ -48,3 +49,6 @@ ja:
   posts:
     create: 
       success: '投稿しました'
+  comments:
+    comments:   
+      title: 'コメント'
