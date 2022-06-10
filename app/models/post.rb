@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
 
   validates :image, presence: true
   validates :title, presence: true, length: { maximum: 50 }
