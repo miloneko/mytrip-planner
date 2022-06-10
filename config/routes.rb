@@ -21,8 +21,10 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create], shallow: true
     collection do
       get 'search'
+      get :likes
   end
  end
+ resources :likes, only: %i[create destroy]
 
   post 'oauth/callback', to: 'oauths#callback'
   get 'oauth/callback', to: 'oauths#callback'

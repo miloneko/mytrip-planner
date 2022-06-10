@@ -51,6 +51,10 @@ class PostsController < ApplicationController
     @results = @q.result(distinct: true).page(params[:page]).per(6)
   end
 
+  def likes
+    @like_posts = current_user.like_posts.include(:user).order(created_at: :desc)
+  end
+
   private
 
   def set_q
