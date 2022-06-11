@@ -1,0 +1,9 @@
+<%= link_to likes_posts_path(post_id: post.ids),
+  id: "js-like-button-for-post-#{post.ids}",
+  method: :post,
+  remote: true,
+  data: { 'turbolinks' => false } do %>
+<button class="text-slate-500 background-transparent font-bold uppercase px-8 py-3 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+  <i class="fas fa-heart"></i>
+</button>
+<% end %>
