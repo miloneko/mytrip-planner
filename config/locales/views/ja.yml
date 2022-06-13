@@ -52,3 +52,9 @@ ja:
   comments:
     comments:   
       title: 'コメント'
+  profiles:
+    show:
+      user_posts: '投稿一覧'  
+      user_liked_posts: '保存した投稿一覧'
+      noposts: 'まだ投稿がありません'
+

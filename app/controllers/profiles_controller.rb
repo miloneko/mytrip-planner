@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   def show
     @posts = @user.posts
     @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(8)
+    @like_posts = @user.like_posts.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def edit; end
