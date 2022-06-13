@@ -1,9 +1,8 @@
 <%= link_to like_path(current_user.likes.find_by(post_id: post.id)),
   id: "js-like-button-for-post-#{post.id}",
-  method: :delete,
-  remote: true do %>
-  <button class="text-pink-500 background-transparent font-bold uppercase py-3 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-    <i class="fa-regular fa-bookmark"></i>
+  method: :delete do %>
+  <button class="text-slate-500 background-transparent font-bold uppercase py-3 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+    <i class="fa-solid fa-bookmark"></i>
   </button>
    <span class="text-sm text-gray-400 font-medium">行きたいリストに追加済</span>
 <% end %>

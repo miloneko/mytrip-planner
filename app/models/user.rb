@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
   has_many :likes, dependent: :destroy
-  has_many :like_posts, through: :likes, source: :post  
+  has_many :like_posts, through: :likes, source: :post 
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -36,6 +36,6 @@ class User < ApplicationRecord
   end
 
   def like?(post)
-    like_ids.include?(post)
+    like_posts.include?(post)
   end
 end
