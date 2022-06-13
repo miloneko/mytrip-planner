@@ -17,12 +17,16 @@ Rails.application.routes.draw do
   resources :plans
   resources :password_resets, only: %i[new create edit update]
   resource :profile, only: %i[show edit update]
+  resources :likes, only: %i[create destroy]
   resources :posts do
-    resources :comments, only: %i[create], shallow: true
+    resources :likes, only: %i[create destroy]
     collection do
       get 'search'
+      get :likes
   end
+  resources :comments, only: %i[create destroy]
  end
+ 
 
   post 'oauth/callback', to: 'oauths#callback'
   get 'oauth/callback', to: 'oauths#callback'

@@ -12,10 +12,11 @@
     <%= image_tag post.image_url(:thumb) %>
     </div>
     <div class="px-3 pb-2">
-       <div class="pt-2">
-         <i class="far fa-heart cursor-pointer"></i>
-        <span class="text-sm text-gray-400 font-medium">100 likes</span>
-       </div>
+      <% if logged_in? %>
+        <%= render 'like_button', { post: post } %>
+      <% else %>
+        <%= render 'nonlogin' %>
+      <% end %>
        <div class="pt-1">
         <div class="mb-2 text-sm">
           <span class="font-medium mr-2"><%= link_to post.title, post_path(post)%></span> 
