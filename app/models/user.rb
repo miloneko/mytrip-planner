@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
   has_many :likes, dependent: :destroy
-  has_many :like_posts, through: :likes, source: :post 
+  has_many :like_posts, through: :likes, source: :post
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -20,7 +20,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   enum role: { general: 0, admin: 1 }
-
 
   def own?(object)
     id == object.user_id
