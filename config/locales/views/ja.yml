@@ -57,4 +57,7 @@ ja:
       user_posts: '投稿一覧'  
       user_liked_posts: '保存した投稿一覧'
       noposts: 'まだ投稿がありません'
+    update:
+      success: 'プロフィールを更新しました'
+      fail: '更新に失敗しました'
 
