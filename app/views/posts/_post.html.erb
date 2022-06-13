@@ -13,7 +13,7 @@
     </div>
     <div class="px-3 pb-2">
       <% if logged_in? %>
-        <%= render 'like_button' %>
+        <%= render 'like_button', { post: post } %>
       <% end %>
        <div class="pt-2">
          <i class="far fa-heart cursor-pointer"></i>

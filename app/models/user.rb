@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
   has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post  
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -15,6 +16,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { minimum: 2, maximum: 10 }
+  validates :user_id, uniqueness: { scope: :post_id }
 
   mount_uploader :avatar, AvatarUploader
 
