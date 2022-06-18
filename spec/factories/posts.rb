@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :posts do
+  factory :post do
     title { "Title" }
     association :user
   end
