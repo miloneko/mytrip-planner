@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
 
   describe 'attribute: title' do
     context 'when present' do
-    # titleが存在している場合は、有効であること
+      # titleが存在している場合は、有効であること
       it 'is valid' do
         post.title = 'Title'
         expect(post).to be_valid

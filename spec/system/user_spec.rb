@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
     it '名が無い場合不正であること' do
       user_without_first_name = build(:user, name: nil)
       expect(user_without_first_name).to be_invalid
-      expect(user_without_first_name.errors[:name]).to eq (['を入力してください',"は2文字以上で入力してください"])
+      expect(user_without_first_name.errors[:name]).to eq(%w[を入力してください は2文字以上で入力してください])
     end
   end
 end
