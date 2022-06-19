@@ -1,0 +1,21 @@
+ <div class="swiper-container">
+    <div class= "swiper-wrapper">
+      <% @posts.each do |post| %>
+        <%= image_tag post.image_url(:thumb), class: "swiper-slide", size: '100x100' %>
+      <% end %>
+    </div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-pagination"></div>
+</div>
+
+<script>
+   $(document).ready(function() {
+    new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+    })
+  })
+</script>
