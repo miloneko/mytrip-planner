@@ -44,7 +44,7 @@
     display: none;
   }
   
-  .modal{
+  /*.modal{
     display: none;
     height: 100vh;
     position: fixed;
@@ -71,4 +71,4 @@
   .modal__content li{
     list-style-type: disc;
   }
-  
+  */    
