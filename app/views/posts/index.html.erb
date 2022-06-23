@@ -57,7 +57,7 @@ const display = document.getElementById('display')
           map: map
         });
         postContent = 
-          "<p class='mb-0'>" + "タイトル："+ "<%= m.title%>" + "</p>";
+          "<a href='/posts/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>" + "</a>";
         var infowindow = new google.maps.InfoWindow({
           content: postContent
         });
