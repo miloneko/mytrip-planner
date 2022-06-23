@@ -34,26 +34,26 @@
 </style>
 
 <script>
-    let map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center:{lat: 35.68123620000001, lng:139.7671248},
-                zoom: 3,
-            });
+let map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center:{lat: 35.68123620000001, lng:139.7671248},
+      zoom: 3,
+    });
 
-            <% @posts.each do |m| %>
-                <% results = Geocoder.search(m.address) %>
-                <% if results.present? %>
-                    <% @latlng = results.first.coordinates %>
-                    (function() {
-                        let marker = new google.maps.Marker({
-                            position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
-                            map: map
-                        });
-                    })();
+  <% @posts.each do |m| %>
+    <% results = Geocoder.search(m.address) %>
+    <% if results.present? %>
+      <% @latlng = results.first.coordinates %>
+      (function() {
+        let marker = new google.maps.Marker({
+          position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+          map: map
+        });
+      })();
 
-                <% end %>
-            <% end %>
+    <% end %>
+  <% end %>
         }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
