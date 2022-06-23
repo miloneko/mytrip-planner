@@ -15,12 +15,12 @@
     <p class="text-base font-bold text-center pt-6 sm:pt-8 lg:pt-12"><%= t('.user_posts') %></p>
     <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 p-5">
       <% if @posts.present? %>
-        <%= render partial: 'users/post', collection: @posts, as: 'post' %>
+      <%= render 'swiper', { post: @post }  %>
       <% else %>
-        <p class="p-6"><%= t('.noposts') %></p>
-      <% end %> 
+        <p><%= t('.no_picture') %></p>
+      <% end %>
     </div>
-    <section><%= paginate @posts %></section>
+    
       <p class="text-base font-bold text-center pt-6 sm:pt-8 lg:pt-12"><%= t('.user_liked_posts') %></p>
     <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 p-5">
       <% if @like_posts.present? %>
@@ -31,3 +31,8 @@
     </div>
    </div>
    <section><%= paginate @like_posts %></section>
+
+   <%= javascript_pack_tag "profiles/show.js" %>
+   <%= javascript_pack_tag "swiper/swiper.js" %>
+   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+

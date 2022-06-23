@@ -1,0 +1,21 @@
+ <div class="swiper">
+   <div class= "swiper-wrapper">
+     <% @posts.each do |post| %>
+       <%= image_tag post.image_url(:thumb), class: "swiper-slide", size: '100x100' %>
+     <% end %>
+   </div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-pagination"></div>
+</div>
+
+<style>
+  .swiper{
+    padding: 0 50px;
+    width: 50%;
+    height: 80%;
+    border: 1px solid;
+    border-color: #7c7d80;
+    top: 10%;
+  }
+</style>
