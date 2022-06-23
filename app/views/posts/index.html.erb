@@ -56,9 +56,10 @@ const display = document.getElementById('display')
           position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
           map: map
         });
-
+        postContent = 
+          "<p class='mb-0'>" + "タイトル："+ "<%= m.title%>" + "</p>";
         var infowindow = new google.maps.InfoWindow({
-          content: 'hi'
+          content: postContent
         });
     
       
