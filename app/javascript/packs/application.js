@@ -12,6 +12,6 @@ import "stylesheets/application.css"
 import "../stylesheets/show.css";
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
 require("jquery")

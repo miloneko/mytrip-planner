@@ -24,6 +24,7 @@
       </div>
     </div>
   </div>
+  <div id="display">ピンをクリックすると、投稿された観光地が表示されます！ウィンドウをクリックすると投稿詳細ページに飛びます！</div>
   <div id='map'></div>
 
 <style>
@@ -34,27 +35,42 @@
 </style>
 
 <script>
-    let map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center:{lat: 35.68123620000001, lng:139.7671248},
-                zoom: 3,
-            });
+let map;
 
-            <% @posts.each do |m| %>
-                <% results = Geocoder.search(m.address) %>
-                <% if results.present? %>
-                    <% @latlng = results.first.coordinates %>
-                    (function() {
-                        let marker = new google.maps.Marker({
-                            position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
-                            map: map
-                        });
-                    })();
+const display = document.getElementById('display')
 
-                <% end %>
-            <% end %>
-        }
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center:{lat: 35.68123620000001, lng:139.7671248},
+      zoom: 3,
+    });
+
+  <% @posts.each do |m| %>
+    <% results = Geocoder.search(m.address) %>
+    <% if results.present? %>
+      <% @latlng = results.first.coordinates %>
+      (function() {
+        let marker = new google.maps.Marker({
+          position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+          map: map
+        });
+        postContent = 
+          "<a href='/posts/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>"+"<br>"+ "<img src='<%= m.image_url(:thumb)%>'>" + "</a>";
+          
+        var infowindow = new google.maps.InfoWindow({
+          content: postContent
+        });
+    
+      
+        // クリックしたときに情報ウィンドウを表示
+      marker.addListener('click', function() {
+      infowindow.open(map, marker);
+      });
+  })();
+
+    <% end %>
+  <% end %>
+  }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
 <section><%= paginate @posts %></section>
