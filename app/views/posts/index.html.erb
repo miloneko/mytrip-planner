@@ -52,7 +52,11 @@ const display = document.getElementById('display')
       (function() {
         let marker = new google.maps.Marker({
           position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
-          map: map
+          map: map,
+          icon: {
+             url: '/assets/map-pin.png',
+             scaledSize: new google.maps.Size(40, 40)
+          }
         });
         postContent = 
           "<a href='/posts/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>"+"<br>"+ "<img src='<%= m.image_url(:thumb)%>'>" + "</a>";
