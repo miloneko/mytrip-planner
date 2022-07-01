@@ -32,6 +32,15 @@
   height: 400px;
   width: 1600px;
 }
+.gm-style-iw {
+  width: 200px;
+  height: 200px; 
+  max-height: 250px;
+  max-width: 250px
+}
+.gm-style img {
+    max-width: 150px;
+}
 </style>
 
 <script>
@@ -58,7 +67,11 @@ const display = document.getElementById('display')
           "<a href='/posts/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>"+"<br>"+ "<img src='<%= m.image_url(:thumb)%>'>" + "</a>";
           
         var infowindow = new google.maps.InfoWindow({
-          content: postContent
+          content: postContent,
+          width: 300,
+          height: 300,
+          maxWidth: 400,
+          maxHeight: 400,
         });
     
       

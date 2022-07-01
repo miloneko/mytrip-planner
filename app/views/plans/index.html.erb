@@ -67,7 +67,11 @@ const display = document.getElementById('display')
           "<a href='/plans/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>" + "</a>";
           
         var infowindow = new google.maps.InfoWindow({
-          content: postContent
+          content: postContent,
+          width: 300,
+          height: 300,
+          maxWidth: 400,
+          maxHeight: 400,
         });
     
       
