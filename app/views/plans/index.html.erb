@@ -8,13 +8,13 @@
 
 <table>
   <tbody>
-    <% @plans.each do |plans| %>
-    <a class="col-span-3 bg-red-500 rounded-xl h-40 md:h-80" href="/plans/<%= @plan.id%>">
+    <% @plans.each do |plan| %>
+    <a class="col-span-3 bg-red-500 rounded-xl h-40 md:h-80" href="/plans/<%= plan.id%>">
         <!-- Image -->
       <img src="https://a0.muscache.com/im/pictures/db8167f7-5c57-4684-80ae-4350c73e45ef.jpg?im_w=320" class="rounded-t-xl max-h-44" /> 
         <!-- City Name -->
-        <p class="text-xl md:text-3xl text-gray-50 pt-5 pl-3"> <%= plans.title %></p>  
-        <p class="text-xl md:text-xl text-gray-50 pt-5 pl-3"> <%= plans.start_time.strftime('%Y/%m/%d') %></p>  
+        <p class="text-xl md:text-3xl text-gray-50 pt-5 pl-3"> <%= plan.title %></p>  
+        <p class="text-xl md:text-xl text-gray-50 pt-5 pl-3"> <%= plan.start_time.strftime('%Y/%m/%d') %></p>  
      <% end %>
 
     </a>
