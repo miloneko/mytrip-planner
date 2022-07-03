@@ -24,70 +24,13 @@
 </table>
 </div>
 </div>
-<div class="w-full flex justify-center py-12" id="button">
-  <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm" onclick="modalHandler(true)">新規作成</button>
+
+<div class="w-full flex justify-center py-12 text-center" >
+  <%= link_to '新規作成',new_plan_path, class:"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm" %>
 </div>
 </div>
 
-
-
-<div id="display">訪問予定地に登録した住所がピンで表示されます!ピンをクリックした後に表示されるウィンドウをクリックすると旅程表詳細ページに飛びます！</div>
-
-<div id='map'></div>
-
-
-<style>
-#map {
-  height: 600px;
-  width: 1200px;
-}
-</style>
-
-<script>
-let map;
-
-const display = document.getElementById('display')
-
-  function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-      center:{lat: 35.68123620000001, lng:139.7671248},
-      zoom: 3,
-    });
-
-  <% @plans.each do |m| %>
-    <% results = Geocoder.search(m.address) %>
-    <% if results.present? %>
-      <% @latlng = results.first.coordinates %>
-      (function() {
-        let marker = new google.maps.Marker({
-          position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
-          map: map
-        });
-        postContent = 
-          "<a href='/plans/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>" + "</a>";
-          
-        var infowindow = new google.maps.InfoWindow({
-          content: postContent,
-          width: 300,
-          height: 300,
-          maxWidth: 400,
-          maxHeight: 400,
-        });
-    
-      
-        // クリックしたときに情報ウィンドウを表示
-      marker.addListener('click', function() {
-      infowindow.open(map, marker);
-      });
-  })();
-
-    <% end %>
-  <% end %>
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
-
-  <h1>カレンダー</h1>
+<h1>カレンダー</h1>
 <%= month_calendar(events: @plans) do |date, plans| %>
   <%= date.day %> 
 
