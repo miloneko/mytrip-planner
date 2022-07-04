@@ -10,11 +10,13 @@ class PlansController < ApplicationController
 
   def index
     @plans = current_user.plans.order(created_at: :desc).page(params[:page])
-    @plan = Plan.new
+
   end
 
   def new
     @plan = Plan.new
+    @user = User.find(current_user.id)
+    @like_posts = @user.like_posts.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
