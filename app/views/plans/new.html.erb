@@ -11,7 +11,7 @@
       <% if @like_posts.present? %>
         <%= render partial: 'users/post', collection: @like_posts, as: 'post' %>
       <% else %>
-        <p class="p-6"><%= t('.noposts') %></p>
+        <%= render partial: 'users/sample', collection: @user_samples, as: 'sample' %>
       <% end %> 
       </div>
     </div>

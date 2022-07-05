@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_03_080527) do
+ActiveRecord::Schema.define(version: 2022_07_05_043245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 2022_07_03_080527) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_samples", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sample_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sample_id"], name: "index_user_samples_on_sample_id"
+    t.index ["user_id"], name: "index_user_samples_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -130,4 +139,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_080527) do
   add_foreign_key "posts", "users"
   add_foreign_key "sample_categories", "categories"
   add_foreign_key "sample_categories", "samples"
+  add_foreign_key "user_samples", "samples"
+  add_foreign_key "user_samples", "users"
 end

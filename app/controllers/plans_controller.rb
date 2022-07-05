@@ -17,6 +17,7 @@ class PlansController < ApplicationController
     @plan = Plan.new
     @user = User.find(current_user.id)
     @like_posts = @user.like_posts.order(created_at: :desc).page(params[:page]).per(8)
+    @user_samples = @user.user_samples.order(created_at: :desc)
   end
 
   def show
