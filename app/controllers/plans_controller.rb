@@ -17,7 +17,7 @@ class PlansController < ApplicationController
     @plan = Plan.new
     @user = User.find(current_user.id)
     @like_posts = @user.like_posts.order(created_at: :desc)
-    @samples = @user.user_samples.order(created_at: :desc)
+    @samples = Sample.last
     @posts = Post.last
   end
 

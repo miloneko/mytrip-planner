@@ -12,11 +12,11 @@
         <%= render partial: 'users/post', collection: @like_posts, as: 'post' %>
       <% else %>
         <div class="w-1/2 md:w-1/4 p-6 mb-6">
-          <div id="post-id-<%= @posts.id %>">
+          <div id="sample-id-<%= @samples.id %>">
             <div class="overflow-hidden">
               <div class="object-cover object-center h-full w-full border">
-                <%= image_tag @posts.image_url(:thumb)%>
-                <p><%= @posts.title %></p>
+                <%= image_tag @samples.image_url%>
+                <p><%= @samples.title %></p>
               </div>
             </div>
           </div>

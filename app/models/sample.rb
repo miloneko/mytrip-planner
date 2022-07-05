@@ -7,5 +7,7 @@ class Sample < ApplicationRecord
   has_many :user_samples
   accepts_nested_attributes_for :user_samples
 
+  mount_uploader :image, SampleUploader
+
   validates :title, presence: true, length: { maximum: 50 }
 end
