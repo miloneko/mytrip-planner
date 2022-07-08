@@ -18,6 +18,7 @@ class PlansController < ApplicationController
     @like_posts = @user.like_posts.order(created_at: :desc)
     @samples = Sample.all
     @posts = Post.last
+    @postcategories = PostCategory.last.post
   end
 
   def show
