@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :avatar, category_ids: [])
   end
 
   def set_user

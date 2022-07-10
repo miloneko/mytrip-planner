@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { minimum: 2, maximum: 10 }
-  
+
   mount_uploader :avatar, AvatarUploader
 
   enum role: { general: 0, admin: 1 }
