@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_many :samples, through: :user_samples
   has_many :user_samples
+  has_many :user_categories, dependent: :destroy
+  has_many :categories, through: :user_categories, dependent: :destroy
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -18,7 +20,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { minimum: 2, maximum: 10 }
-
+  
   mount_uploader :avatar, AvatarUploader
 
   enum role: { general: 0, admin: 1 }

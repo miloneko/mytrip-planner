@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_09_080940) do
+ActiveRecord::Schema.define(version: 2022_07_10_091807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(version: 2022_07_09_080940) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_categories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id"
+    t.index ["user_id"], name: "index_user_categories_on_user_id"
+  end
+
   create_table "user_samples", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "sample_id", null: false
@@ -127,8 +136,6 @@ ActiveRecord::Schema.define(version: 2022_07_09_080940) do
     t.integer "access_count_to_reset_password_page", default: 0
     t.integer "role", default: 0
     t.string "avatar"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
@@ -144,7 +151,8 @@ ActiveRecord::Schema.define(version: 2022_07_09_080940) do
   add_foreign_key "posts", "users"
   add_foreign_key "sample_categories", "categories"
   add_foreign_key "sample_categories", "samples"
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
   add_foreign_key "user_samples", "samples"
   add_foreign_key "user_samples", "users"
-  add_foreign_key "users", "categories"
 end
