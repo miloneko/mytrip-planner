@@ -11,6 +11,8 @@ Category.seed(
     { id: 8, name: '自然' },
     { id: 9, name: '文化体験' },
     { id: 10, name: '都会' },
-    { id: 11, name: 'ロケ地' }
+    { id: 11, name: 'ロケ地' },
+    { id: 12, name: 'もふもふ' },
+    { id: 13, name: 'クレイジー' },
    ]
 )

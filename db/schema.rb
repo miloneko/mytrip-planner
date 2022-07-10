@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_094434) do
+ActiveRecord::Schema.define(version: 2022_07_10_091807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2022_06_23_094434) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_plans_on_post_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
@@ -85,6 +87,42 @@ ActiveRecord::Schema.define(version: 2022_06_23_094434) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "sample_categories", force: :cascade do |t|
+    t.bigint "sample_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_sample_categories_on_category_id"
+    t.index ["sample_id"], name: "index_sample_categories_on_sample_id"
+  end
+
+  create_table "samples", force: :cascade do |t|
+    t.string "image"
+    t.string "title", null: false
+    t.integer "location_id"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id"
+    t.index ["user_id"], name: "index_user_categories_on_user_id"
+  end
+
+  create_table "user_samples", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sample_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sample_id"], name: "index_user_samples_on_sample_id"
+    t.index ["user_id"], name: "index_user_samples_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -106,8 +144,15 @@ ActiveRecord::Schema.define(version: 2022_06_23_094434) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "plans", "posts"
   add_foreign_key "plans", "users"
   add_foreign_key "post_categories", "categories"
   add_foreign_key "post_categories", "posts"
   add_foreign_key "posts", "users"
+  add_foreign_key "sample_categories", "categories"
+  add_foreign_key "sample_categories", "samples"
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
+  add_foreign_key "user_samples", "samples"
+  add_foreign_key "user_samples", "users"
 end

@@ -8,6 +8,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :authentications
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
+  has_many :samples, through: :user_samples
+  has_many :user_samples
+  has_many :user_categories, dependent: :destroy
+  has_many :categories, through: :user_categories, dependent: :destroy
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

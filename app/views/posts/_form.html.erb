@@ -23,7 +23,7 @@
   </div>
   <div class="sm:col-span-2">
     <%= f.label :category,"ハッシュタグ(複数選択可)" %>
-    </div>
+  </div>
   <div class="sm:col-span-2">
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
     <%= category.label do %>

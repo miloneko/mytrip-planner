@@ -1,10 +1,9 @@
 <div class="max-w-md font-serif max-w-screen-2xl font-serif text-center object-center py-4 px-5 bg-white shadow-lg rounded-lg my-20">
-<div class="h-screen flex items-center justify-center bg-white">
-
-<div class="grid grid-cols-12 px-18 gap-5">
-    <div class="col-span-12">
+  <div class="h-screen flex items-center justify-center bg-white">
+    <div class="grid grid-cols-12 px-18 gap-5">
+      <div class="col-span-12">
         <p class="text-gray-800 text-3xl font-semibold">Inspiration for your next trip</p>
-    </div>
+      </div>
 
 <table>
   <tbody>
@@ -16,78 +15,20 @@
         <p class="text-xl md:text-3xl text-gray-50 pt-5 pl-3"> <%= plan.title %></p>  
         <p class="text-xl md:text-xl text-gray-50 pt-5 pl-3"> <%= plan.start_time.strftime('%Y/%m/%d') %></p>  
      <% end %>
-
     </a>
     </div>
-    </div>
+  </div>
   </tbody>
 </table>
 </div>
 </div>
-<div class="w-full flex justify-center py-12" id="button">
-  <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm" onclick="modalHandler(true)">新規作成</button>
+
+<div class="w-full flex justify-center py-12 text-center" >
+  <%= link_to '新規作成',new_plan_path, class:"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm" %>
 </div>
 </div>
 
-
-
-<div id="display">訪問予定地に登録した住所がピンで表示されます!ピンをクリックした後に表示されるウィンドウをクリックすると旅程表詳細ページに飛びます！</div>
-
-<div id='map'></div>
-
-
-<style>
-#map {
-  height: 600px;
-  width: 1200px;
-}
-</style>
-
-<script>
-let map;
-
-const display = document.getElementById('display')
-
-  function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-      center:{lat: 35.68123620000001, lng:139.7671248},
-      zoom: 3,
-    });
-
-  <% @plans.each do |m| %>
-    <% results = Geocoder.search(m.address) %>
-    <% if results.present? %>
-      <% @latlng = results.first.coordinates %>
-      (function() {
-        let marker = new google.maps.Marker({
-          position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
-          map: map
-        });
-        postContent = 
-          "<a href='/plans/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>" + "</a>";
-          
-        var infowindow = new google.maps.InfoWindow({
-          content: postContent,
-          width: 300,
-          height: 300,
-          maxWidth: 400,
-          maxHeight: 400,
-        });
-    
-      
-        // クリックしたときに情報ウィンドウを表示
-      marker.addListener('click', function() {
-      infowindow.open(map, marker);
-      });
-  })();
-
-    <% end %>
-  <% end %>
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
-
-  <h1>カレンダー</h1>
+<h1>カレンダー</h1>
 <%= month_calendar(events: @plans) do |date, plans| %>
   <%= date.day %> 
 
@@ -105,45 +46,9 @@ const display = document.getElementById('display')
       <div class="w-full flex justify-start text-gray-600 mb-3">
       </div>
       <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">旅行計画作成</h1>   
-      <button class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onclick="modalHandler()" aria-label="close modal" role="button">
-        <svg  xmlns="http://www.w3.org/2000/svg"  class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" />
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
+      
        <%= render 'form', plan: @plan %>  
     </div>
   </div>
 </div>
-<script>
-    let modal = document.getElementById("modal");
-    function modalHandler(val) {
-        if (val) {
-            fadeIn(modal);
-        } else {
-            fadeOut(modal);
-        }
-    }
-    function fadeOut(el) {
-        el.style.opacity = 1;
-        (function fade() {
-            if ((el.style.opacity -= 0.1) < 0) {
-                el.style.display = "none";
-            } else {
-                requestAnimationFrame(fade);
-            }
-        })();
-    }
-    function fadeIn(el, display) {
-        el.style.opacity = 0;
-        el.style.display = display || "flex";
-        (function fade() {
-            let val = parseFloat(el.style.opacity);
-            if (!((val += 0.2) > 1)) {
-                el.style.opacity = val;
-                requestAnimationFrame(fade);
-            }
-        })();
-    }
-</script>
+  
