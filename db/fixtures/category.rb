@@ -14,5 +14,5 @@ Category.seed(
     { id: 11, name: 'ロケ地' },
     { id: 12, name: 'もふもふ' },
     { id: 13, name: 'クレイジー' },
-   ]
+  ]
 )
