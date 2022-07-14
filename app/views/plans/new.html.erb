@@ -17,10 +17,10 @@
                   <%= s.title %>
                 <% end %>
           </div>
-          <div id="post-id-<%= @posts.ids %>">
+          <div id="post-id-<%= @reccomendposts.ids %>">
             <div class="overflow-hidden">
                 <div class=" object-center h-full w-full border">
-                  <% @posts.each do |p| %>
+                  <% @reccomendposts.each do |p| %>
                     <%= image_tag p.image_url%>
                     <%= p.title %>
                   <% end %>

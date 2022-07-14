@@ -17,7 +17,7 @@ class PlansController < ApplicationController
     @user = User.find(current_user.id)
     @like_posts = @user.like_posts.order(created_at: :desc)
     @samples = Sample.all
-    @posts = Post.where(id: PostCategory.where(category_id: 3).map(&:post_id))
+    @reccomendposts = Post.where(id: PostCategory.where(category_id: 1).map(&:post_id))
   end
 
   def show
