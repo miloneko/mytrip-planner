@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
-  process :convert => 'jpg'
+  process convert: 'jpg'
   if Rails.env.development? || Rails.env.test?
     storage :file
   else

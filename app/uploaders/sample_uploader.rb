@@ -6,7 +6,7 @@ class SampleUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
-  process :convert => 'jpg'
+  process convert: 'jpg'
   if Rails.env.development? || Rails.env.test?
     storage :file
   else
@@ -36,7 +36,6 @@ class SampleUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
