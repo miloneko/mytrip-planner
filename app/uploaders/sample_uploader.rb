@@ -6,6 +6,7 @@ class SampleUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
+  process :convert => 'jpg'
   if Rails.env.development? || Rails.env.test?
     storage :file
   else
@@ -45,7 +46,7 @@ class SampleUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+  end
 end
