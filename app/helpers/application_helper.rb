@@ -14,13 +14,13 @@ module ApplicationHelper
         description: 'TripPlanner',
         type: 'website',
         url: [request.original_url],
-        image: asset_url('ogp_logo.png'),
+        image: asset_url('ogp_default.png'),
         locale: "ja_JP"
       },
       twitter: {
         site: '@wheretogo',
         card: 'summary',
-        image: asset_url('ogp_logo.png')
+        image: asset_url('ogp_default.png')
       },
     }
   end
