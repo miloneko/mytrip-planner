@@ -11,7 +11,7 @@
     <p><%= @plan.address %></p>
     <p><%= @plan.body %></p>
   <%= link_to '編集', edit_plan_path(@plan)%>
-  <%= link_to '削除', plan_path(@plan),method: :delete, data: { confirm: '本当に消去しますか?' }%>
+  <%= link_to '削除', plan_path(@plan),method: :delete, data: { confirm: t('defaults.message.delete_confirm') }%>
     </div>
   </div>
  </div>
