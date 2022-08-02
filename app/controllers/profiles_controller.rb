@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :require_login
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def show
     @posts = @user.posts
@@ -17,6 +17,11 @@ class ProfilesController < ApplicationController
       flash.now[:danger] = t('.fail')
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy!
+    redirect_to root_path, notice: t('.delete')
   end
 
   private

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :plans
   resources :password_resets, only: %i[new create edit update]
-  resource :profile, only: %i[show edit update]
+  resource :profile, only: %i[show edit update destroy]
   resources :likes, only: %i[create destroy]
   resources :posts do
     resources :likes, only: %i[create destroy]
