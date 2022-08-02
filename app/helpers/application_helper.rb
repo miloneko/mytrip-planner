@@ -21,7 +21,7 @@ module ApplicationHelper
         site: '@wheretogo',
         card: 'summary',
         image: asset_url('ogp_default.png')
-      },
+      }
     }
   end
 end
