@@ -23,6 +23,8 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+    destroy:
+      delete: '退会しました'
   oauths:
     success: 'Twitterでログインしました'
   user_sessions:
@@ -61,4 +63,6 @@ ja:
     update:
       success: 'プロフィールを更新しました'
       fail: '更新に失敗しました'
+    destroy:
+      delete: '退会しました。ご利用ありがとうございました。'
 

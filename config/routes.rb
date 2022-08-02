@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'about#show'
   get 'privacy', to: 'static_pages#privacy'
   get 'terms', to: 'static_pages#terms'
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create destroy]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :plans
   resources :password_resets, only: %i[new create edit update]
-  resource :profile, only: %i[show edit update]
+  resource :profile, only: %i[show edit update destroy]
   resources :likes, only: %i[create destroy]
   resources :posts do
     resources :likes, only: %i[create destroy]

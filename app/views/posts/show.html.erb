@@ -10,3 +10,9 @@
       <%= render 'comments/comments', post: @post, comment: @comment%> 
   </div>
 </div>
+
+<% set_meta_tags(og: { title: "Trip Planner",
+  description: "お気に入りの観光地を見つけよう",
+  image: asset_url('ogp_default.png') },
+  twitter: { card: 'summary_large_image',
+  image: asset_url('ogp_default.png') }) %>
