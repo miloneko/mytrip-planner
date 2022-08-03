@@ -6,7 +6,6 @@ RSpec.describe '投稿', type: :system do
   let(:user) { create(:user) }
   let(:post) { create(:post, user: user) }
 
-
   describe '投稿一覧機能' do
     context 'Loginしている場合' do
       before do
