@@ -26,6 +26,23 @@
   </div>
   <div id="display">ピンをクリックすると、投稿された観光地が表示されます！ウィンドウをクリックすると投稿詳細ページに飛びます！</div>
   <div id='map'></div>
+ <% if logged_in? %>
+  <div class="modal js-modal">
+  <div class="modalbg"></div>
+  <div class="modalcontent">
+    <div class="modal_text">
+    <table>
+      <tr>
+        <td><p class="text-6xl text-runte-orange ml-20">さっそく描いてみよう！</p></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+</div>
+ <% end %>
+
+<%= javascript_pack_tag "posts/index.js" %>
+
 
 <style>
 #map {
@@ -65,7 +82,7 @@ const display = document.getElementById('display')
         });
         postContent = 
           "<a href='/posts/<%= m.id%>'>" + "タイトル："+ "<%= m.title%>"+"<br>"+ "住所、施設名："+ "<%= m.address%>"+"<br>"+ "<img src='<%= m.image_url(:thumb)%>'>" + "</a>";
-          
+
         var infowindow = new google.maps.InfoWindow({
           content: postContent,
           width: 300,
@@ -73,8 +90,8 @@ const display = document.getElementById('display')
           maxWidth: 400,
           maxHeight: 400,
         });
-    
-      
+
+
         // クリックしたときに情報ウィンドウを表示
       marker.addListener('click', function() {
       infowindow.open(map, marker);
