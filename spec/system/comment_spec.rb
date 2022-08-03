@@ -23,12 +23,12 @@ RSpec.describe 'コメント', type: :system do
     describe 'コメントの作成' do
       it 'コメントを作成できること' do
         visit post_path post
-        fill_in 'コメント', with: '新規コメント'
+        fill_in 'コメント', with: 'コメント'
         click_on '投稿'
         comment = Comment.last
         within("#comment-#{comment.id}") do
           expect(page).to have_content(me.decorate.full_name)
-          expect(page).to have_content('新規コメント')
+          expect(page).to have_content('コメント')
         end
       end
       it 'コメントの作成に失敗すること', js: true do
@@ -44,7 +44,6 @@ RSpec.describe 'コメント', type: :system do
         it '編集ボタン・削除ボタンが表示されないこと' do
           visit post_path board
           within("#comment-#{comment_by_others.id}") do
-            expect(page).not_to have_selector('.js-edit-comment-button')
             expect(page).not_to have_selector('.js-delete-comment-button')
           end
         end
