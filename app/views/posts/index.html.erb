@@ -27,15 +27,30 @@
   <div id="display">ピンをクリックすると、投稿された観光地が表示されます！ウィンドウをクリックすると投稿詳細ページに飛びます！</div>
   <div id='map'></div>
  <% if logged_in? %>
-  <div class="modal js-modal">
-  <div class="modalbg"></div>
-  <div class="modalcontent">
-    <div class="modal_text">
-    <table>
-      <tr>
-        <td><p class="text-6xl text-runte-orange ml-20">さっそく描いてみよう！</p></td>
-      </tr>
-    </table>
+<div class="modal js-modal">
+<div class="modalbg"></div>
+<div class="modalcontent">
+  <div class="modal_text">
+      
+<div class="justify-center border-t border-gray-200">
+  <h2 class="text-2xl font-bold text-center item-cente"><%= @current_user.name %>さんにおすすめの観光地</h2>
+</div>
+  <div class= "flex sm:-m-4 -mx-4 -mb-10 -mt-4 p-5" >
+    <div class="w-1/2 md:w-1/4 p-6 mb-6">
+      <div id="post-id-<%= @reccomendposts.ids %>">
+        <div class="overflow-hidden">
+          <div class=" object-center h-full w-full border">
+            <% @reccomendposts.each do |p| %>
+              <%= image_tag p.image_url(:thumb)%>
+              <%= p.title %>
+            <% end %>
+          <div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 </div>
