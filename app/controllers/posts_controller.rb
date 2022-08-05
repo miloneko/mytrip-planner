@@ -19,9 +19,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.includes(:user, :categories).order(created_at: :desc).page(params[:page]).per(6)
-    @user = User.find(current_user.id)
     @samples = Sample.all
-    @recommendposts = Post.where(id: PostCategory.where(category_id: 13).map(&:post_id)).last
+    @recommendposts = Post.where(id: PostCategory.where(category_id: UserCategory.where(user_id: current_user.id).map(&:category_id)).map(&:post_id)).limit(3)
   end
 
   def show
