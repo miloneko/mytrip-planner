@@ -49,7 +49,7 @@
 
   <% plans.each do |plan| %>
     <div>
-      <%= plan.title %>
+      <%= link_to plan.title, new_post_path %>
     </div>
   <% end %>
 <% end %>
