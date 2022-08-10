@@ -110,7 +110,7 @@ const display = document.getElementById('display')
       zoom: 3,
     });
 
-  <% @posts.each do |m| %>
+  <% @mappin.each do |m| %>
     <% results = Geocoder.search(m.address) %>
     <% if results.present? %>
       <% @latlng = results.first.coordinates %>
