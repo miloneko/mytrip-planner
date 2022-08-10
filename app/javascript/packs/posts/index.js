@@ -5,5 +5,5 @@ $(function(){
   setTimeout(function(){
     $('.js-modal').fadeOut();
     Cookies.set('btnFlg', 'on', { expires: 120/86410 });
-  }, 8000);
+  }, 6500);
 });
