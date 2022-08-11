@@ -2,7 +2,8 @@ class PlansController < ApplicationController
   def create
     @plan = current_user.plans.build(plans_parameter)
     if @plan.save
-      redirect_to plans_path, notice: "作成しました"
+      flash[:notice] = t('.success')
+      redirect_to plans_path
     else
       render :new
     end

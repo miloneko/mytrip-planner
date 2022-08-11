@@ -53,6 +53,9 @@ ja:
   posts:
     create: 
       success: '投稿しました'
+  plans:
+    create:
+      success: '作成しました'
   comments:
     comments:   
       title: 'コメント'
