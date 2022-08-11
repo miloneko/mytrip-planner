@@ -31,7 +31,10 @@
     </div>
   </div>
   <section><%= paginate @posts %></section>
-  <div id="display">ピンをクリックすると、投稿された観光地が表示されます！ウィンドウをクリックすると投稿詳細ページに飛びます！</div>
+  <div class="text-center">
+    <h1 class='text-center text-gray-800 text-3xl font-bold'>地図のピンをクリックすると、みんなのトリップ先にワープできます!</h1>
+    <div id="display">ピンをクリックして表示されたWindowをクリックすると詳細ページに飛べます</div>
+  </div>
   <div id='map'></div>
  <% if logged_in? %>
 <div class="posts_modal js-modal">
