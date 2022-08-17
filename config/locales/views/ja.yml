@@ -56,6 +56,10 @@ ja:
   plans:
     create:
       success: '作成しました'
+    destroy:
+      delete: '削除しました'
+    update:
+      edit: '編集しました'
   comments:
     comments:   
       title: 'コメント'
