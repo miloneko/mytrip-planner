@@ -28,7 +28,8 @@ class PlansController < ApplicationController
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy
-    redirect_to plans_path, notice: "削除しました"
+    flash[:notice] = t('.delete')
+    redirect_to plans_path
   end
 
   def edit
@@ -38,7 +39,8 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plans_parameter)
-      redirect_to plans_path, notice: "編集しました"
+      redirect_to plans_path
+      flash[:notice] = t('.edit')
     else
       render 'edit'
     end
