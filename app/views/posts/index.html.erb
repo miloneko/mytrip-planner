@@ -120,6 +120,9 @@ const display = document.getElementById('display')
     });
 
   <% @mappin.each do |m| %>
+    <% cache m do %>
+      <%= render m %>
+    <% end %>
     <% results = Geocoder.search(m.address) %>
     <% if results.present? %>
       <% @latlng = results.first.coordinates %>
