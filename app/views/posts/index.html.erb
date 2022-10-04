@@ -114,21 +114,17 @@ let map;
 const display = document.getElementById('display')
 
   function initMap() {
+    geocoder = new google.maps.Geocoder()
     map = new google.maps.Map(document.getElementById("map"), {
       center:{lat: 35.68123620000001, lng:139.7671248},
       zoom: 3,
     });
 
   <% @mappin.each do |m| %>
-    <% cache m do %>
-      <%= render m %>
-    <% end %>
-    <% results = Geocoder.search(m.address) %>
-    <% if results.present? %>
-      <% @latlng = results.first.coordinates %>
+    <% if !m.longitude.nil? && !m.latitude.nil? %>
       (function() {
         let marker = new google.maps.Marker({
-          position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+          position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
           map: map
         });
         postContent = 
